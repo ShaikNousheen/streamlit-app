@@ -38,3 +38,9 @@ explainer = shap.Explainer(model)
 shap_values = explainer(X_scaled[:100])
 shap.summary_plot(shap_values, features=X.iloc[:100], feature_names=X.columns, show=False)
 st.pyplot(bbox_inches='tight')
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+shap.summary_plot(shap_values, features=X.iloc[:100], feature_names=X.columns, show=False)
+st.pyplot(fig)
+
